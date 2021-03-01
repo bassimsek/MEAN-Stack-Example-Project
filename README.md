@@ -1,4 +1,4 @@
-# MEAN Stack Example Project (User Management & Messaging Tool)
+# User Management & Messaging Tool
 
 # Description
 
