@@ -1,0 +1,29 @@
+<mat-spinner *ngIf = "isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf = "posts.length > 0 && !isLoading">
+    <section class="mat-typography">
+      <h1>INBOX</h1>
+    </section>
+  <mat-expansion-panel *ngFor = "let post of posts">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p><strong>From:</strong> {{post.from}}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+            <p> Date: {{post.time}}</p>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class ="post-image" *ngIf = "post.imagePath !== '' && post.imagePath">
+      <img [src]="post.imagePath" [alt]="post.title">
+    </div>
+    <p><strong>Title:</strong> {{post.title}}</p>
+    <hr>
+    <p><strong>Content:</strong> {{post.content}}</p>
+    <mat-action-row *ngIf = "userIsAuthenticated && userMail === post.to">
+        <button mat-raised-button color="primary" [routerLink] ="['/send_message', post.id]">REPLY</button>
+        <button mat-raised-button color="warn" (click) = "onDelete(post.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator [length] = "totalPosts" [pageSize] = "postsPerPage" [pageSizeOptions] = "pageSizeOptions" (page) = "onChangedPage($event)"
+*ngIf = "posts.length > 0"></mat-paginator>
+<p class ="info-text mat-body-1" *ngIf = "posts.length == 0 && !isLoading">No posts added yet!</p>

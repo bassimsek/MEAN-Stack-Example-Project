@@ -1,0 +1,42 @@
+mat-form-field {
+  width : 40%;
+  margin: auto;
+}
+
+:host {
+  display: block;
+  margin-top : 1rem;
+}
+
+mat-card {
+  margin: auto;
+  width: 60%;
+}
+
+
+mat-form-field, input {
+  width : 100%;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+button {
+  height:40px;
+  width:200px;
+  margin:auto;
+  display:block;
+  border:2px black solid;
+  border-radius:10px;
+  font-size:1.5em;
+  text-align:center;
+
+}
+
+h1 {
+  text-align: center;
+  color: brown;
+}
+
+

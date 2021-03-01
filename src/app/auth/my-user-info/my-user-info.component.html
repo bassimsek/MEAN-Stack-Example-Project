@@ -1,0 +1,21 @@
+<mat-spinner *ngIf = "isLoading"></mat-spinner>
+<mat-card>
+    <mat-list role="list" *ngIf = "!isLoading">
+        <h2> <mat-icon>info</mat-icon> Your user informations:</h2>
+        <mat-divider></mat-divider>
+     <mat-list-item role="listitem"> <span>Name:</span> {{currentUser.name}}</mat-list-item>
+     <mat-divider></mat-divider>
+     <mat-list-item role="listitem"><span>Surame:</span> {{currentUser.surname}}</mat-list-item>
+     <mat-divider></mat-divider>
+     <mat-list-item role="listitem"><span>E-mail:</span> {{currentUser.email}}</mat-list-item>
+     <mat-divider></mat-divider>
+     <mat-list-item role="listitem"><span>Password:</span> {{currentUser.password}}</mat-list-item>
+     <mat-divider></mat-divider>
+     <mat-list-item role="listitem"><span>Birthdate:</span> {{currentUser.birthdate}}</mat-list-item>
+     <mat-divider></mat-divider>
+     <mat-list-item role="listitem"><span>Gender:</span> {{currentUser.gender}}</mat-list-item>
+     <mat-divider></mat-divider>
+     <mat-list-item role="listitem"><span>Admin Status:</span> {{currentUser.isAdmin}}</mat-list-item>
+   </mat-list>
+</mat-card>
+

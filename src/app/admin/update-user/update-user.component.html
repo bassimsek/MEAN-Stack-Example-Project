@@ -1,0 +1,69 @@
+<section class="mat-typography">
+  <h1>Please fill this form to update user!</h1>
+</section>
+<mat-card>
+  <mat-spinner *ngIf = "isLoading"></mat-spinner>
+  <form [formGroup] ="form" (submit)= "onUpdateUser()" *ngIf = "!isLoading">
+    <mat-form-field>
+      <input matInput
+      type="text"
+      formControlName= "name"
+      placeholder="Name:">
+      <mat-error *ngIf="form.get('name').invalid">Please enter a valid name!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="text"
+      formControlName= "surname"
+      placeholder="Surname:">
+      <mat-error *ngIf="form.get('surname').invalid">Please enter a valid surname!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="email"
+      formControlName= "email"
+      placeholder="Email:">
+      <mat-error *ngIf="form.get('email').invalid">Please enter a valid email!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="text"
+      formControlName= "password"
+      placeholder="Password:">
+      <mat-error *ngIf="form.get('password').invalid">Please enter a valid password!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="date"
+      formControlName= "birthdate"
+      placeholder="Birthdate:">
+      <mat-error *ngIf="form.get('birthdate').invalid">Please enter a valid birthdate!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select matInput
+        formControlName= "gender"
+        placeholder="Gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender">
+          {{gender}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('gender').invalid">Please enter gender!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select matInput
+        formControlName = "isAdmin"
+        placeholder="Admin Status">
+        <mat-option *ngFor="let status of adminStatus" [value]="status">
+          {{status}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('isAdmin').invalid">Please enter user status!</mat-error>
+    </mat-form-field>
+    <button
+    mat-raised-button color = "accent"
+    type = "submit">Update User</button>
+  </form>
+</mat-card>
+
+
+

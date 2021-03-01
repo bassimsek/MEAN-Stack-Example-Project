@@ -1,0 +1,93 @@
+<section class="mat-typography">
+  <h1>Please fill this form to create new user!</h1>
+</section>
+<mat-card>
+  <mat-spinner *ngIf = "isLoading"></mat-spinner>
+  <form (submit)= "onCreateUser(createuserForm)" #createuserForm="ngForm" *ngIf = "!isLoading">
+    <mat-form-field>
+      <input matInput
+      name= "name"
+      ngModel
+      type= "text"
+      placeholder="Name"
+      #nameInput="ngModel"
+      required>
+      <mat-error *ngIf="nameInput.invalid">Please enter new user's name!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      name= "surname"
+      ngModel
+      type= "text"
+      placeholder="Surname"
+      #surnameInput="ngModel"
+      required>
+      <mat-error *ngIf="surnameInput.invalid">Please enter new user's surname!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      name= "email"
+      ngModel
+      type= "email"
+      placeholder="E-mail"
+      #emailInput="ngModel"
+      required
+      email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid e-mail!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      name="password"
+      ngModel
+      type="password"
+      placeholder="Password"
+      #passwordInput="ngModel"
+      required>
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      name= "birthdate"
+      ngModel
+      type= "date"
+      placeholder="Birthdate"
+      #birthdateInput="ngModel"
+      required>
+      <mat-error *ngIf="birthdateInput.invalid">Please enter new user's birthdate!</mat-error>
+    </mat-form-field>
+      <mat-form-field>
+      <mat-select matInput
+      placeholder="Gender"
+      ngModel
+      name="gender"
+      #genderInput="ngModel"
+      required>
+        <mat-option *ngFor="let gender of genders" [value]="gender">
+          {{gender}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="genderInput.invalid">Please enter new user's gender!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select matInput
+       placeholder="Admin Status"
+       ngModel
+       name="isAdmin"
+       #isAdminInput="ngModel"
+       required>
+        <mat-option *ngFor="let status of adminStatus" [value]="status">
+          {{status}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="isAdminInput.invalid">Please enter new user's status!</mat-error>
+    </mat-form-field>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button
+    mat-raised-button color = "accent"
+    type = "submit">Create User</button>
+  </form>
+</mat-card>
+

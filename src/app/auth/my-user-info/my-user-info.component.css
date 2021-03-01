@@ -1,0 +1,19 @@
+mat-spinner {
+  margin: auto;
+}
+
+
+mat-card {
+  width: 60%;
+  background-color:paleturquoise;
+}
+
+h2 {
+  color: darkblue;
+}
+
+span {
+  text-decoration: underline;
+  color: darkblue;
+  margin-right: 1rem;
+}

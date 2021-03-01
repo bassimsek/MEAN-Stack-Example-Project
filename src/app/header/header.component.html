@@ -1,0 +1,51 @@
+<mat-toolbar color = "primary" >
+  <span>
+    <a *ngIf ="userIsAuthenticated" routerLink = "/">Home Page</a>
+   </span>
+   <span>
+    <a *ngIf ="!userIsAuthenticated">Welcome</a>
+   </span>
+  <span class= "spacer"></span>
+    <ul>
+      <li *ngIf ="userIsAuthenticated && !isAdmin" >
+        <a mat-button>Normal User</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated && isAdmin">
+         <a mat-button>Admin</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated && isAdmin" >
+        <a mat-button routerLink = "/show_users" routerLinkActive= "mat-accent">Show Users</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated && isAdmin" >
+        <a mat-button routerLink = "/show_user_logs" routerLinkActive= "mat-accent">Show User Logs</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated && isAdmin">
+        <a mat-button routerLink = "/create_user" routerLinkActive= "mat-accent">Create User</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated">
+        <a mat-button routerLink = "/myinfos" routerLinkActive= "mat-accent">My Infos</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated">
+        <a mat-button routerLink = "/change_password" routerLinkActive= "mat-accent">Change Password</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated">
+        <a mat-button routerLink = "/send_message" routerLinkActive= "mat-accent">Send Message</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated">
+        <a mat-button routerLink = "/inbox" routerLinkActive= "mat-accent">Inbox</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated">
+        <a mat-button routerLink = "/outbox" routerLinkActive= "mat-accent">Outbox</a>
+      </li>
+      <li *ngIf ="!userIsAuthenticated">
+        <a mat-button routerLink = "/login" routerLinkActive= "mat-accent">Login</a>
+      </li>
+      <li *ngIf ="!userIsAuthenticated">
+        <a mat-button routerLink = "/signup" routerLinkActive= "mat-accent">Signup</a>
+      </li>
+      <li *ngIf ="userIsAuthenticated">
+        <button mat-button (click)= "onLogout()">Logout</button>
+      </li>
+    </ul>
+
+</mat-toolbar>
