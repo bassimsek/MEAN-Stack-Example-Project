@@ -10,7 +10,9 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://orcun:lJ6BK5jtKFCQjKtk@cluster0-uainq.mongodb.net/node-angular')
+
+
+mongoose.connect('mongodb_URI_example....')
 .then(() => {
   console.log('Connected to database successfully!');
 })
